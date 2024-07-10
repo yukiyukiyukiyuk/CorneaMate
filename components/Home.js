@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#4dd0e1', // 濃い水色
-    padding: 16,
+    padding: 0,
     borderRadius: 8,
     marginBottom: 16,
   },
@@ -113,13 +113,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   doctorImage: {
-    width: 100,
-    height: 100,
+    width: 120,
+    height: 120,
     resizeMode: 'contain',
-    marginLeft: 16,
+    marginTop: 10,
   },
   uploadText: {
     textAlign: 'left',
+    marginLeft: 16,
     marginBottom: 8,
     fontSize: 16,
   },
@@ -127,6 +128,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#1e90ff', // 薄い青色
     paddingVertical: 10,
     paddingHorizontal: 20,
+    marginLeft: 16,
     borderRadius: 20,
     alignSelf: 'flex-start',
   },
