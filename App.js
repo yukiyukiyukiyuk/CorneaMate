@@ -55,7 +55,7 @@ const App = () => {
     <NavigationContainer>
       <Tab.Navigator screenOptions={{ tabBarShowLabel: false }}>
         <Tab.Screen 
-          name="Home" 
+          name="Hometab" 
           component={HomeStack} 
           options={{ 
             headerShown: false,
