@@ -68,7 +68,7 @@ const App = () => {
           }} 
         />
         <Tab.Screen 
-          name="MyPage" 
+          name="MyPagetab" 
           component={MyPageStack} 
           options={{ 
             headerShown: false,

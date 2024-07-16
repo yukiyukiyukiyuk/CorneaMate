@@ -4,7 +4,7 @@ import * as ImagePicker from 'expo-image-picker';
 import {Picker} from '@react-native-picker/picker';
 
 const MyPage = () => {
-  const [name, setName] = useState('Yuki Matsuoka');
+  const [name, setName] = useState('Yuki ');
   const [country, setCountry] = useState('Japan');
   const [affiliation, setAffiliation] = useState('Doshisha');
   const [occupation, setOccupation] = useState('Ophthalmologist');
