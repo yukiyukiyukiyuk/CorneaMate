@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput, Picker } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput} from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import {Picker} from '@react-native-picker/picker';
 
 const MyPage = () => {
   const [name, setName] = useState('Yuki Matsuoka');

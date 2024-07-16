@@ -172,12 +172,17 @@ const Diagnosis = () => {
 		            <Text style={styles.subTitle}>Chief Complaint:</Text>
 		            {chiefComplaints.map((item, index) => (
 		              <View key={index} style={styles.historyInputContainer}>
+                    <Text style={styles.bulletPoint}>•</Text>
 		                <TextInput
 		                  style={styles.input}
 		                  placeholder="Right eye pain and significant vision loss."
 		                  placeholderTextColor="#ccc"
 		                  value={item}
-		                  onChangeText={(text) => handleChiefComplaintChange(text, index)}
+                      onChangeText={(text) => handleChiefComplaintChange(text, index)}
+                      multiline={true}
+                      numberOfLines={3}
+                      returnKeyType="done"
+                      blurOnSubmit={true}
 		                />
 		                {chiefComplaints.length > 1 && (
 		                  <TouchableOpacity onPress={() => handleDeleteChiefComplaint(index)} style={styles.deleteButton}>
@@ -193,12 +198,17 @@ const Diagnosis = () => {
 		              <Text style={styles.subTitle}>History of Present Illness:</Text>
 		              {history.map((item, index) => (
 		                <View key={index} style={styles.historyInputContainer}>
+                      <Text style={styles.bulletPoint}>•</Text>
 		                  <TextInput
 		                    style={styles.input}
 		                    placeholder="The patient has been using soft contact lenses."
 		                    placeholderTextColor="#ccc"
 		                    value={item}
-		                    onChangeText={(text) => handleHistoryChange(text, index)}
+                        onChangeText={(text) => handleHistoryChange(text, index)}
+                        multiline={true}
+                        numberOfLines={3}
+                        returnKeyType="done"
+                        blurOnSubmit={true}
 		                  />
 		                  {history.length > 1 && (
 		                    <TouchableOpacity onPress={() => handleDeleteHistory(index)} style={styles.deleteButton}>
@@ -370,16 +380,24 @@ const styles = StyleSheet.create({
   },
   historyInputContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     marginBottom: 8,
+  },
+  bulletPoint: {
+    fontSize: 18,
+    marginRight: 8,
+    marginTop: 8,
   },
   input: {
     flex: 1,
-    height: 40,
+    minHeight: 40,
     borderColor: '#ccc',
     borderWidth: 1,
     borderRadius: 8,
     paddingLeft: 8,
+    paddingTop: 8,
+    paddingBottom: 8,
+    textAlignVertical: 'top',
   },
   deleteButton: {
     marginLeft: 8,
