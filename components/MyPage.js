@@ -99,11 +99,11 @@ const MyPage = () => {
               onValueChange={(itemValue) => setExperience(itemValue)}
             >
               <Picker.Item label="Select Experience" value="" />
-              <Picker.Item label="A" value="A" />
-              <Picker.Item label="B" value="B" />
-              <Picker.Item label="C" value="C" />
-              <Picker.Item label="D" value="D" />
-              <Picker.Item label="E" value="E" />
+              <Picker.Item label="Occupation" value="Occupation" />
+              <Picker.Item label="Ophthalmologist" value="Ophthalmologist" />
+              <Picker.Item label="Non-ophthalmologist (medical doctor)" value="Non-ophthalmologist (medical doctor)" />
+              <Picker.Item label="Nurse" value="Nurse" />
+              <Picker.Item label="Others" value="Others" />
             </Picker>
           ) : (
             <Text style={styles.value} onPress={handleEdit}>{experience}</Text>
