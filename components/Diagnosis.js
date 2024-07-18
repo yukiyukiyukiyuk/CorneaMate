@@ -130,6 +130,11 @@ const Diagnosis = () => {
               </View>
             ))}
           </View>
+          <View style={styles.saveButtonContainer}>
+            <TouchableOpacity onPress={saveData} style={styles.saveButton}>
+              <Text style={styles.saveButtonText}>Save</Text>
+            </TouchableOpacity>
+          </View>
         </>
       ) : (
         <>
@@ -251,12 +256,6 @@ const Diagnosis = () => {
         </>
       )}
 
-      <View style={styles.saveButtonContainer}>
-        <TouchableOpacity onPress={saveData} style={styles.saveButton}>
-          <Text style={styles.saveButtonText}>Save</Text>
-        </TouchableOpacity>
-      </View>
-
       <Modal visible={showSexPicker} transparent={true} animationType="slide">
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
@@ -286,9 +285,12 @@ const Diagnosis = () => {
               }}
             >
               <Picker.Item label="Asian" value="Asian" />
-              <Picker.Item label="Caucasian" value="Caucasian" />
-              <Picker.Item label="African" value="African" />
+              <Picker.Item label="White" value="White" />
+              <Picker.Item label="Black" value="Black" />
               <Picker.Item label="Hispanic" value="Hispanic" />
+              <Picker.Item label="Native American" value="Native American" />
+              <Picker.Item label="Pacific Islander" value="Pacific Islander" />
+              <Picker.Item label="Other" value="Other" />
             </Picker>
             <Button title="Close" onPress={() => setShowEthnicityPicker(false)} />
           </View>
