@@ -5,12 +5,14 @@ import CountryPicker from 'react-native-country-picker-modal';
 import RNPickerSelect from 'react-native-picker-select';
 
 const MyPageScreen = () => {
+  const [username, setusername] = useState('kouta')
   const [name, setName] = useState('Kouta Ikeguchi');
   const [country, setCountry] = useState('JP');
   const [affiliation, setAffiliation] = useState('Doshisha');
   const [occupation, setOccupation] = useState('Ophthalmologist');
   const [experience, setExperience] = useState('0 ~ 5');
   const [image, setImage] = useState(null);
+  const [isEditingUsername, setIsEditingUsername] = useState(false);
   const [isEditingName, setIsEditingName] = useState(false);
   const [isEditingCountry, setIsEditingCountry] = useState(false);
   const [isEditingAffiliation, setIsEditingAffiliation] = useState(false);
@@ -42,8 +44,24 @@ const MyPageScreen = () => {
         <TouchableOpacity onPress={pickImage}>
           <Image source={image ? { uri: image } : require('../assets/avatar.png')} style={styles.avatar} />
         </TouchableOpacity>
-        <Text style={styles.username}>Yuki</Text>
+      
+        {isEditingUsername ? (
+          <TextInput
+            style={[styles.username, styles.input]}
+            value={username}
+            onChangeText={setusername}
+            onBlur={() => setIsEditingUsername(false)}
+          />
+        ) : (
+          <TouchableOpacity onPress={() => setIsEditingUsername(true)}>
+            <Text style={styles.username}>{username}</Text>
+          </TouchableOpacity>
+        )}
+        
       </View>
+
+
+
       <View style={styles.infoContainer}>
         <View style={styles.infoRow}>
           <Text style={styles.label}>Name</Text>
@@ -175,7 +193,7 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    padding: 20,
+    padding: 130,
     backgroundColor: '#87CEEB',
   },
   avatar: {
@@ -203,6 +221,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 10,
     borderBottomWidth: 1,
+    paddingRight: 0,
     borderBottomColor: '#eee',
   },
   label: {
@@ -212,7 +231,7 @@ const styles = StyleSheet.create({
   },
   value: {
     fontSize: 16,
-    width: '60%',
+    width: '100%',
     textAlign: 'right',
   },
   input: {
