@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput, Picker } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import CountryPicker from 'react-native-country-picker-modal';
+import RNPickerSelect from 'react-native-picker-select';
 
-const MyPage = () => {
-  const [name, setName] = useState('Yuki Matsuoka');
-  const [country, setCountry] = useState('Japan');
+const MyPageScreen = () => {
+  const [name, setName] = useState('Kouta Ikeguchi');
+  const [country, setCountry] = useState('JP');
   const [affiliation, setAffiliation] = useState('Doshisha');
   const [occupation, setOccupation] = useState('Ophthalmologist');
   const [experience, setExperience] = useState('0 ~ 5');
@@ -128,19 +130,30 @@ const MyPage = () => {
         </View>
         <View style={styles.infoRow}>
           <Text style={styles.label}>Experience</Text>
-          {isEditing ? (
-            <Picker
-              selectedValue={experience}
-              style={styles.picker}
-              onValueChange={(itemValue) => setExperience(itemValue)}
-            >
-              <Picker.Item label="Select Experience" value="" />
-              <Picker.Item label="A" value="A" />
-              <Picker.Item label="B" value="B" />
-              <Picker.Item label="C" value="C" />
-              <Picker.Item label="D" value="D" />
-              <Picker.Item label="E" value="E" />
-            </Picker>
+          {isEditingExperience ? (
+            <View style={styles.pickerContainer}>
+              <RNPickerSelect
+                onValueChange={(value) => {
+                  setExperience(value);
+                  setIsEditingExperience(false);
+                }}
+                items={[
+                  { label: '0 ~ 5', value: '0 ~ 5' },
+                  { label: '5 ~ 10', value: '5 ~ 10' },
+                  { label: '10 ~ 15', value: '10 ~ 15' },
+                  { label: '15 ~ 20', value: '15 ~ 20' },
+                  { label: '20+', value: '20+' },
+                ]}
+                style={{
+                  ...pickerSelectStyles,
+                  inputIOS: [pickerSelectStyles.inputIOS, styles.textRight],
+                  inputAndroid: [pickerSelectStyles.inputAndroid, styles.textRight],
+                }}
+                useNativeAndroidPickerStyle={false}
+                placeholder={{}}
+                value={experience}
+              />
+            </View>
           ) : (
             <TouchableOpacity onPress={() => setIsEditingExperience(true)} style={styles.touchable}>
               <Text style={[styles.value, styles.textRight]}>{experience}</Text>
@@ -259,6 +272,7 @@ const pickerSelectStyles = StyleSheet.create({
 });
 
 export default MyPageScreen;
+
 
 
 
