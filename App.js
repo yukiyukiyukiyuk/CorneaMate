@@ -8,6 +8,7 @@ import MyPage from './components/MyPage';
 import Diagnosis from './components/Diagnosis';
 import Notification from './components/Notification';
 import History from './components/History';
+import Result from './components/Result';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -28,6 +29,11 @@ const HomeStack = () => (
       options={{ title: 'Diagnosis' }} // タイトルを設定
     />
     <Stack.Screen 
+      name="Result" 
+      component={Result} 
+      options={{ title: 'Result' }} // タイトルを設定
+    />
+    <Stack.Screen 
       name="Notification" 
       component={Notification} 
       options={{ title: 'Notification' }} // タイトルを設定
@@ -35,7 +41,7 @@ const HomeStack = () => (
     <Stack.Screen 
       name="History" 
       component={History} 
-      options={{ title: 'History' }} // タイトルを設定
+      options={{ title: 'Your History' }} // タイトルを設定
     />
   </Stack.Navigator>
 );
