@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import CountryPicker from 'react-native-country-picker-modal';
 import RNPickerSelect from 'react-native-picker-select';
 
+const countries = [
+  { label: 'Japan', value: 'JP' },
+  { label: 'United States', value: 'US' },
+  { label: 'Canada', value: 'CA' },
+  { label: 'United Kingdom', value: 'GB' },
+  // 他の国も追加できます
+];
+
 const MyPageScreen = () => {
-  const [username, setusername] = useState('kouta')
+  const [username, setusername] = useState('kouta');
   const [name, setName] = useState('Kouta Ikeguchi');
   const [country, setCountry] = useState('JP');
   const [affiliation, setAffiliation] = useState('Doshisha');
@@ -60,8 +67,6 @@ const MyPageScreen = () => {
         
       </View>
 
-
-
       <View style={styles.infoContainer}>
         <View style={styles.infoRow}>
           <Text style={styles.label}>Name</Text>
@@ -82,16 +87,20 @@ const MyPageScreen = () => {
           <Text style={styles.label}>Country</Text>
           {isEditingCountry ? (
             <View style={styles.pickerContainer}>
-              <CountryPicker
-                withFilter
-                withFlag
-                withCountryNameButton
-                countryCode={country}
-                onSelect={(country) => {
-                  setCountry(country.cca2);
+              <RNPickerSelect
+                onValueChange={(value) => {
+                  setCountry(value);
                   setIsEditingCountry(false);
                 }}
-                containerButtonStyle={styles.countryPicker}
+                items={countries}
+                style={{
+                  ...pickerSelectStyles,
+                  inputIOS: [pickerSelectStyles.inputIOS, styles.textRight],
+                  inputAndroid: [pickerSelectStyles.inputAndroid, styles.textRight],
+                }}
+                useNativeAndroidPickerStyle={false}
+                placeholder={{}}
+                value={country}
               />
             </View>
           ) : (
