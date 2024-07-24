@@ -8,9 +8,31 @@ const countries = [
   { label: 'United States', value: 'US' },
   { label: 'Canada', value: 'CA' },
   { label: 'United Kingdom', value: 'GB' },
+  { label: 'Australia', value: 'AU' },
+  { label: 'Germany', value: 'DE' },
+  { label: 'France', value: 'FR' },
+  { label: 'China', value: 'CN' },
+  { label: 'India', value: 'IN' },
+  { label: 'Brazil', value: 'BR' },
+  { label: 'Russia', value: 'RU' },
+  { label: 'South Korea', value: 'KR' },
+  { label: 'Mexico', value: 'MX' },
+  { label: 'Italy', value: 'IT' },
+  { label: 'Spain', value: 'ES' },
+  { label: 'Netherlands', value: 'NL' },
+  { label: 'Sweden', value: 'SE' },
+  { label: 'Norway', value: 'NO' },
+  { label: 'Denmark', value: 'DK' },
+  { label: 'Finland', value: 'FI' },
+  { label: 'Switzerland', value: 'CH' },
+  { label: 'South Africa', value: 'ZA' },
+  { label: 'New Zealand', value: 'NZ' },
+  { label: 'Argentina', value: 'AR' },
+  { label: 'Turkey', value: 'TR' },
+  { label: 'Saudi Arabia', value: 'SA' },
+  { label: 'United Arab Emirates', value: 'AE' },
   // 他の国も追加できます
 ];
-
 const MyPageScreen = () => {
   const [username, setusername] = useState('kouta');
   const [name, setName] = useState('Kouta Ikeguchi');
